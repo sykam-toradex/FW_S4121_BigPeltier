@@ -1,0 +1,69 @@
+--- Verify proper arguments for RttRestart ---
+
+The 2nd argument changed (and renamed to u16_RTT_SecondDevider) by June of 2011 to a divider for the resulting IRQ frequency.
+Set it to 1 to get 1 Hz or e.g. to 2 to get 2 Hz now.
+!!!The old meaning was completely different and may heavily stress the cpu when not adjusted!!!
+
+RttRestart(u8_Unit0, u16_RTT_SecondDevider, u32_RTT_AlarmValue,
+   u32_Device_TotalRunTimeInSeconds, u32_RTT_PeriodForMsgGen, 
+   cu16_TimeoutMedium)
+
+--- Verify os_clockrate == OS_TICK_RATE ---
+
+   // Within your application at the end of the main function PLEASE add this verificaction
+   // Verify OS_TICK_RATE (set in AT91SAM7X.h) is matching the setting of os_clockrate (set as OS_TICK in RTX_Config.c)
+   if (os_clockrate == OS_TICK_RATE)
+   {
+      // disable forced (between configured tick interval) runs of scheduler for additional rtos queue processing
+      //-LOCK_FORCECTRL;
+   
+      // TSK_Init          function pointer to init task
+      // OS_P_NORMAL       priority level of the init task
+      // Stack_TSK_Init    ulong pointer to an defined array (stack)
+      os_sys_init_user( TSK_Init, (uchar)OS_P_NORMAL, (void *)Stack_TSK_Init, (ushort)(sizeof(Stack_TSK_Init)) );
+   }
+   
+   return 1;
+}
+
+--- MBPB (ModBusPortBus) limits ---
+
+// Request _and_ reply buffer size in bytes
+mbpbframe.h:
+MBPB_SER_PDU_SIZE_MAX         0x0100   256
+
+// Maximum item count depending on item type and access mode for a single command
+// Determined on every start depending on MBPB_SER_PDU_SIZE_MAX
+// Currently only read limitations apply to avoid non-complete replies by buffer limit
+// Write request are always accepted as long they fit in the request buffer limit
+SMBPBApp
+   SDataRO
+      SMaxItems
+         0 (MBPB_MODE_ASC, default)
+            SHolding       // Hex      Dez
+               usRead         0x003D   0061
+               usReadCombo    0x003D   0061   // Combined read + write access
+               usWrite        0x003C   0060
+               usWriteCombo   0x003B   0059   // Combined read + write access
+            SCoils
+               usRead         0x03D8   0984
+               usWrite        0x03C8   0968
+            SInput
+               usRead         0x003D   0061
+            SDiscrete
+               usRead         0x03D8   0984
+         1 (MBPB_MODE_RTU)
+            SHolding
+               usRead         0x007D   0125
+               usReadCombo    0x007D   0125
+               usWrite        0x007B   0123
+               usWriteCombo   0x0079   0121
+            SCoils
+               usRead         0x07D8   2008
+               usWrite        0x07B8   1976
+            SInput
+               usRead         0x007D   0125
+            SDiscrete
+               usRead         0x07D8   2008
+
+--- --- ---

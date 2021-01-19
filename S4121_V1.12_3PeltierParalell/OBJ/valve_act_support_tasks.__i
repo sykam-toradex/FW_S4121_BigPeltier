@@ -1,1 +1,0 @@
--c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\valve_act_support_tasks.o" --omf_browse ".\OBJ\valve_act_support_tasks.crf" --depend ".\OBJ\valve_act_support_tasks.d" "src\S6510\valve_act_support_tasks.c"

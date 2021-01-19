@@ -1,1 +1,0 @@
--c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\mcp2317.o" --omf_browse ".\OBJ\mcp2317.crf" --depend ".\OBJ\mcp2317.d" "..\..\EXT\SPI\GPIO\MCP2317\mcp2317.c"

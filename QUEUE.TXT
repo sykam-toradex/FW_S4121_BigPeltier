@@ -1,0 +1,51 @@
+* [] von HS
+Vervielfältigten Kommentartipfehler "spann"/"spanned" zu "spawn"/"spawned" korrgieren
+
+
+* [] von HS
+Rückgabedatentyp von ...Msg von fix USHORT auf ..._MSGCOUNTERTYPE umstellen!?
+
+
+* [>>>freigegeben FM<<<] von HS
+MBPB Modusanzahl per Define auf 1 beschränken (nur ASCII) um Speicherbedarf zu halbieren
+
+
+* [zurückgestellt FM] von HS
+Umstellung Ordnername von AT91 auf SAM7
+
+
+* [zurückgestellt FM] von HS
+ALLE READ-ONLY STRUCTS PER "CONST" VOM RAM INS FLASH/ROM VERLAGERN
+um mehr Speicherplatz im RAM zu gewinnen
+!!! Vorsicht, Init-Funktionen schreiben teilweise auch Werte (einmalig) in die ...RO Strukturen (Umstellung erforderlich) !!!
+
+
+* [zurückgestellt FM] von HS/RR
+ANLAGE ALLER TASKS MIT CUSTOM-STACKS (MIT OPTION DEFAULT-STACK BEI GROESSE 0, siehe EFC)
+um Anzahl Tasks mit Custom-Stack gleich er Anzahl der möglichen Tasks setzen zu können - ohne fehleranfälliges Abzählen
+
+
+* [zurückgestellt HS] von HS
+ERWEITERUNG SPI AUF "MEMORY-TAG" UM DIREKT SPEICHERINHALT PER PDC ZU ÜBERTRAGEN
+um mit sehr kleinen Job-Queues große Speicherblöcke (z.B. für Display) übertragen zu können.
+Hohes Entwicklungsrisiko bei bereits bewährtem Code!
+
+
+* [zurückgestellt FM] von HS
+UMSTELLUNG DER PUFFERSPEICHER IN SPI AUF "POINTERBUFFER" (unter Verwendung vorhandener, jedoch noch ungetester Makros)
+um für unbenutzte Slaves KEINEN Speicher mehr zu verschwenden (Besonders im SLAVE-MODE - Display - ist das drastisch: 8x belegter Puffer, 1x tatsächlich verwendet)
+Ist durch lückenlose Belegung der Arrays trotz nicht-lückenloser Slave ID bereits entschärft.
+
+
+* [zurückgestellt FM] von RR
+SPI TREIBER - ECHTES TAUSCHEN VON HARDWARE+CONTAINER
+Der Spi-Treiber soll das echte Tauschen von physikalischer Hardwareadresse MIT Tauschen der logischen Containeradresse unterstützen.
+
+
+* [a-b-g-e-l-e-h-n-t FM] von HS
+"Generische DAC-Treiber" (Abstraktionsschichten) für vorhandene DACs, sowohl uC intern als auch extern.
+Dazu sollen vorhandene (leichter wartbare) Einzel-Treiber in den "Generischen DAC-Treiber" (Abstraktionsschicht) eingehängt und verwaltet werden.
+
+
+* [a-b-g-e-l-e-h-n-t FM] von RR
+Generischer DAC-Treiber als Abstraktionsschicht für vorhandene externe DACs (erste Fassung, nur für externe DACs siehe SYKAM\EXT\SPI\DAC\DAC_GENERIC). NACHTEIL: Coderedundanz !!! Copy & Paste !!!

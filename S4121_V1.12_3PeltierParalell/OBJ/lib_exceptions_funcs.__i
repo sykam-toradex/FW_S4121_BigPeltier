@@ -1,1 +1,0 @@
--c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\lib_exceptions_funcs.o" --omf_browse ".\OBJ\lib_exceptions_funcs.crf" --depend ".\OBJ\lib_exceptions_funcs.d" "..\SHARED\SRC\lib_exceptions_funcs.c"

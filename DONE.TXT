@@ -1,0 +1,394 @@
+--- Referenzangaben ---
+
+AT91SAM7X Series Preliminary_doc6120_2009-02-17.pdf
+AT91SAM7X Series Preliminary_doc6120_2011-04-06.pdf
+
+--- 2017-09-14  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\PIO, AT91\PWM und EXT\SPI\GPIO\MCP2317: Überprüfung der Bereichsgrenzen der Liste nach Suche
+EXT\SPI\NVRAM\FM25CLSS: Korrektur der Datenüberprüfung und der Speicherung der Kopien in Fm25clssReadSafe
+
+--- 2017-04-11  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\USART: Korrektur der "Double-Bank" Initialisierung zur richtigen Behandlung von Irq/Rx Overruns
+
+--- 2017-04-04  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\SPI: Datenzugriffe in TskSpiRx/Tx & Irq/Tx, 9...16 Bit Support und Auto-Datenblocksplitting korrigiert
+AT91\SPI: Korrektur der "Double-Bank" Initialisierung zur richtigen Behandlung von Irq/Rx Overruns
+
+--- 2017-02-16  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+
+
+--- 2016-06-23.1  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+MISC\ENCGAPDISK: Zähler mit Lese/Lösch-Funktion der Flanken zur Positionsnachführung während normaler Bewegung
+MISC\ENCGAPDISK: Auswertung des Encoders inklusive Level bei IRQ mit Zähler des Spike-Levels <= 1 (vorher 0)
+
+--- 2016-06-10.1  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\PIO: Unterstützung Init unabhängig von ISR Callback zur reinen Parameterübergabe ohne IRQ-Steuerung
+
+--- 2016-06-09  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+MISC\ENCGAPDISK: Portangabe der Option für extra Gate des IRQs der Lichtschranke (default ein an TIOAx, PIOB)
+MISC\ENCGAPDISK: Extra Gate mit Fallback (1) PIO-Init+ISR Callbacks, (2) PIO-Init/Descriptor Poll und (3) aus
+
+--- 2016-06-08  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\PIO: Unterstützung der Rücklesefähigkeit mit Interrupt der Pins in allen Konfigurationen
+MISC\ENCGAPDISK: Option für extra Gate (optional per IRQ) des IRQs der Lichtschranke (default ein an TIOAx)
+
+--- 2016-05-12  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+PROTOCOL\MODBUS: Erkennung und Verarbeitung von noch ausstehenden Daten in MBPBSerSyncPrepareRx ergänzt
+
+--- 2016-03-31  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\MISC\ALIVE: eigene Defaultwerte für AT91D_BASE_PIO_LED & AT91B_LED_ALIVE ergänzt
+PROTOCOL\MODBUS: Korrektur für Translation-Feature, RESCHEDULE(0) in TskMBPBMsg ergänzt
+
+--- 2016-03-03.1  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+Dual-Bank PDC/DMA Support in AT91/SPI (latenzfreie Bankumschaltung per PDC/DMA Hardware)
+Dual-Bank PDC/DMA Support in AT91/USART (latenzfreie Bankumschaltung per PDC/DMA Hardware)
+Datenempfang per PDC/DMA parallel zur Verarbeitung der empfangenen Daten per Task in AT91/SPI
+Datenempfang per PDC/DMA parallel zur Verarbeitung der empfangenen Daten per Task in AT91/USART
+
+--- 2016-03-02  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+AT91\PIO unterstützt optionale Init-Handler (für manuelle, pinweise IRQ Steuerung der HW durch andere Module)
+EXT\GPIO\MCP2317 verwendet Init-Handler zur echten manuellen IRQ Steuerung der HW
+EXT\MISC\ENCGAPDISK verwendet Init-Handler zur echten manuellen IRQ Steuerung der HW
+
+--- 2016-03-01  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+Offsetfeinkorrektur während der Motorbewegungen (nach der Kalibrierung) wegen zu hoher IRQ Last in encgapdisk.h deaktiviert: ENCGAPDISK_OFFSETCORRECTION (0)
+
+--- 2016-02-11  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+Optimierung SPI\spi.c: Obsolete IRQ Syncronisation & Datenübertragung zwischen TX und RX entfernt (Slave Mode)
+Begrenzung des Ergebnisses des Makros SPI_CSR_SCBR auf min= 0x01 und max= UCHAR_MAX (erfordert <limits.h> !)
+
+--- 2016-02-04  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+Korrektur Dokumentation für externe Datei AT91SAM7X512.h
+Korrektur in SPI\spi.c: Syncronisation erwungene IRQ-Folge TX/RX/TX/RX... für nicht-parallele IRQs
+Korrektur in SPI\spi.c: Obsoleter Workarround für HW-BUG in TX-IRQ entfernt
+
+--- 2016-02-03  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" oder "2016-02-03.0 Extern.7z" !!!
+Korrektur Dokumentation für externe Datei AT91SAM7X512.h
+
+--- 2016-01-28  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrektur in SPI\spi.c: Syncronisation zwischen TskSpiTx und SpiIrqHandler wieder sichergestellt
+Umstellung Copyright auf -2016
+
+--- 2015-10-28  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Boarddateien (AT91SAM7X.h und AT91SAM7X.c) der 'RTT-Projekte' von .\SRC nach .\CFG verschoben (nun wie bei den anderen Projekten)
+
+--- 2015-10-22.1  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrektur in RTL\support.c: Weiterleitung an memcpy & memset bei memcpyflex ergänzt zur Unterstützung benutzerspezifischer Datentypen
+Beispiele für Circular erweitert und für circular_declare und circular_declare_ex in eine eigene Datei aufgeteilt
+
+--- 2015-10-22  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrektur in RTL\support.c: Weiterleitung an memcpy & memset bei memcpyflex ergänzt zur Unterstützung benutzerspezifischer Datentypen
+Beispiel für Circular erweitert
+
+--- 2015-04-30  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrektur in MISC\STPCLKDIR\stpclkdir.c: StpClkDirQuit verzögert Stop wenn noch kein PWM Zyklus/IRQ komplett ist
+
+--- 2015-04-29  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrektur in MISC\STPCLKDIR\stpclkdir.c: _StpClkDirMbxClear komplett auf os_mbx_clear umgestellt
+Korrektur in PWM\pwm.c: Maskierung in PwmCalcCprePrdDty für ulCpre ergänzt
+
+--- 2015-04-23  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrektur in EXT\SPI\GPIO\MCP2317\mcp2317.c: 16 Bit I/O jetzt komplett funktionsfähig
+Korrektur in PROTOCOL\MODBUS\mbpbregcb.c: MBPBRegGeneralReferenceCB kombiniert jetzt beim Schreiben 16+16 Bit zu einem 32 Bit Zugriff (wichtig für EFC!!)
+
+--- 2014-11-27  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Kleinere Korrekturen in support.h, spi.c, stclkdir.h und stpclkdirauxdev.h
+
+--- 2014-10-22.2  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrekturen an StpClkDir um StpClkDirQuit auch bei laufenden Bremsrampen nebenwirkungsfrei aufrufen zu können
+
+--- 2014-10-16  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Korrekturen an StpClkDir für StpClkDirSpeedChange & StpClkDirSpeedChangeWait für bessere Betriebssicherheit
+sowie an StpClkDirBrk und StpClkDirQuit
+
+--- 2014-01-29  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Dauertests absolviert (4x 12h mit 0,5Hz)
+Umstellung Copyright auf -2014
+
+--- 2014-01-09  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Speicheroptimierung für Spi-Treiber kann nun per Konfiguration zahlreiche unbenutzte Speicherbereiche freigeben
+
+--- 2013-12-05  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Beispiel für Pcko-Treiber erweitert und Hardwareeinschränkungen der Pmc/Pcko Komponente kommentiert
+
+--- 2013-11-20  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+Beispiele für Efc und Pcko ergänzt
+PCKO_CHANNEL_MAX auf 3 reduziert (aktuelle Boards unterstützen mit gewählter Pinzuordnung nur CLK1...3)
+
+--- 2013-11-06  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Namensschema für PWM angepasst, z.B. PwmTxChannel -> PwmTx
+Korrektur des Locking-Supports im EFC und obsolete static Deklarationen entfernt
+Neuer Treiber PCK0 zur Unterstützung der (P)eripheral-(C)loc(k)-(O)utput Pins (CLK1...3 auf aktuellen Boards)
+Dokumentation/Beispiele angepasst und erweitert (inkl. PIO-Peripheral-Map (4a).xls)
+
+--- 2013-08-29  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Überprüfung von minimal erforderlichem SPI_PDCMAX für:
+- EXT\SPI\DAC\DACRRCS085
+- EXT\SPI\GPIO\MCP2317
+- EXT\SPI\NVRAM\FM25CLSS
+jedoch nicht für:
+- \PROTOCOL\MODBUS (abhängig vom tatsächlich verwendeten MBPB-Befehlsumfang)
+
+--- 2013-08-28  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Umstellung der Einheiten (von Delays/Timeouts/etc) von Millisekunden auf Ticks
+Korrekturen für PWM (inkl. Variante in StpClkDir)
+Korrekturen für OS_T_MS und _OS_T_MS (liefern jetzt auch 0 bei einem übergebenen Wert 0)
+
+--- 2013-08-22  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Umstellung aller Komponenten von Millisekunden auf Ticks
+Geschwindigkeitscheck auf "PWM Period" Ebene für StpClkDirSpeedChange inkl. Ignorieren mit erfolgreicher Rückmeldung überarbeitet um auch new-from zu berücksichtigen
+Änderungen von StpClkDir-PWM in PWM-Treiber eingepflegt
+
+--- 2013-08-21  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+StpClkDir überarbeitet (mehrfacher Aufruf von StpClkDirSpeedChangeWait möglich, Geschwindigkeitscheck auf "PWM Period" Ebene für StpClkDirSpeedChange inkl. Ignorieren mit erfolgreicher Rückmeldung)
+
+--- 2013-08-14  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+ADC (DMA/PDC) abschliessende Korrektur
+
+--- 2013-08-07  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+ADC (DMA/PDC) überarbeitet inkl. Korrekturen
+
+--- 2013-08-01.1  ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Umstellung auf AT91SAM7X512.h (lib_AT91SAM7X256.h BLEIBT!) für alle Dateien (Ausnahme S6510 V1.00 und V1.10)
+
+--- 2013-08-01 ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+ADC (DMA/PDC) Aktualisierung Doxygen (inkl. Hinweise auf verfügbares Minimalinterface "AdcRx")
+ADC (DMA/PDC) Erweiterung auf Zugriff (Rx, Wait) von mehreren (nicht-lückenlosen) Kanälen (AdcRx, AdcWait)
+
+--- 2013-07-31 ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Integration/Anpassung/Doxygen neuer Applikationskomponenten (CPU/AT91/ADCLE, EXT\SPI\DAC\DAC_GENERIC)
+Integration/Minimalanpassung aktueller Stand S6510 V1.10
+
+Sicherstellung der Kompilierbarkeit aller aktuellen Applikationen (DEVICEs) durch Beibehaltung der API
+Ausnahmen:
+- Umstellung vom Namenskonflikt ADC auf ADCLE (Projektdatei per Hand! + Quelltext für Includes), Umstellung von MBPB-User-Verify von 'U16 u16_ModbusAddress' auf 'U32 u32_ModbusAddress' (Quelltext für Prototyp und Funktionskopf)
+- Project +\SYKAM\PROTOCOL\MODBUS\FUNCTION\mbpbgeneral.h und +\SYKAM\PROTOCOL\MODBUS\FUNCTION\mbpbgeneral.c
+
+--- 2013-07-18 ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+Target-Namen geändert (wegen Lesbarkeit) zu "EX/BL/AP Flash/Ram UL/SI:SAM7X512" (ohne S6510 @2011-09-20 von RR)
+Startups (SAM7.s und SAM7_AP.s) um Überprüfung IVT Kopie im RAM und per GUI konfigurierbare Fehleranzeige erweitert
+Neue Debug-Ini (FLASH_AP.ini) für Applikationsmodus
+Neuer Dokumentationsorder (SYKAM\DOC\UV4) zur einfacheren Konfiguration der Modi (EX, BL, AP)
+Neue Demo-Devices (als pseudo-BL: 1STS6510RTT, als AP: 2NDS6510RTT)
+Code-Cleanup (ohne S6510 @2011-09-20 von RR)
+Reset-Auswertung/Generierung, ALIVE, Watchdog, EFC/Flash und MC/Memory-Controller ergänzt (ohne S6510 @2011-09-20 von RR)
+
+Mindest-Code-Anpassungen (für S6510 @2011-09-20 von RR) für aktuellen Stand des Frameworks
+   AT91SAM7X.h:
+   bool AT91SAM7X_FilterForModbusRequests  (uchar u8_ModbusDataType, U32 u32_ModbusAddress, ushort *pu16_ModbusData);
+
+   AT91SAM7X.c:
+   bool AT91SAM7X_FilterForModbusRequests  (uchar u8_ModbusDataType, U32 u32_ModbusAddress, ushort *pu16_ModbusData)
+   {
+      // ...
+      b_Result &= CommonModbusFuncs_FilterForModbusRequests  (u8_ModbusDataType, (ushort)(u32_ModbusAddress & BITS_USHORT), pu16_ModbusData);
+      b_Result &= ValveActModbusFuncs_FilterForModbusRequests(u8_ModbusDataType, (ushort)(u32_ModbusAddress & BITS_USHORT), pu16_ModbusData);
+      // ...
+   }
+
+   Project:
+   +\SYKAM\PROTOCOL\MODBUS\FUNCTION\mbpbholding.h
+   +\SYKAM\PROTOCOL\MODBUS\FUNCTION\mbpbholding.c
+
+--- 2013-04-24 ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+2013-04-23
+   ULONG StpClkDirAuxPwrAt91Pio(UCHAR ucUnit, bool bEnable)
+      liefert Rückgabewert ggf. (je nach Bitmaske) > USHORT_MAX
+      UND:
+      __inline USHORT StpClkDirPowerEx konvertiert immer zu USHORT!!!
+      z.B.:
+      stpclkdir.c 484: usResult= (SStpClkDirRW[ucUnit].pAuxPwr) ? (SStpClkDirRW[ucUnit].pAuxPwr(ucUnit, bPower)) : (1);
+      
+      Hotfix (für FM):
+      stpclkdiraux.h 69: ändern zu
+      ulResult= (SStpClkDirAuxPwrAt91PioRO[ucUnit].u32PinPwrMask != 0);
+      
+      Besser: StpClkDirPowerEx korrigieren:
+      stpclkdir.c 445: ändern zu
+      usResult= (SStpClkDirRW[ucUnit].pAuxDac) ? (SStpClkDirRW[ucUnit].pAuxDac(ucUnit, bRun) != 0) : (1);
+      stpclkdir.c 464: ändern zu
+      usResult= (SStpClkDirRW[ucUnit].pAuxPwr) ? (SStpClkDirRW[ucUnit].pAuxPwr(ucUnit, FALSE) != 0) : (1);
+      stpclkdir.c 484: ändern zu
+      usResult= (SStpClkDirRW[ucUnit].pAuxPwr) ? (SStpClkDirRW[ucUnit].pAuxPwr(ucUnit, bPower) != 0) : (1);
+
+--- 2013-04-17 ---
+
+Stand erfordert "2013-04-03.0 Extern.7z" !!!
+
+2013-04-11 EFC erste Fassung
+
+2013-03-07 SYSIRQ vervollständigt (und um EFC0 und EFC1 erweitert)
+   tbd.AT91SAM7X.c
+   ok.sysirqdata.h
+   ok.sysirq.h
+   ok.sysirq.c
+
+2013-02-11 MBPB "stirbt" bei zu schnellen weiteren Host-Requests (auch erst direkt nach versandten Replies)
+   falls erfolgte Korrekturen noch nicht ausreichen, weiter debuggen
+
+--- 2013-02-13 ---
+
+Alive bewirkt Reset bei ausgeschaltetem Watchog
+   korrigiert durch Abfrage auf WDDIS
+
+2013-02-11 MBPB "stirbt" bei zu schnellen weiteren Host-Requests (auch erst direkt nach versandten Replies)
+   
+   mbpbser.c:MBPBSerNotifyRx erfolgt obwohl mbpb.c:TskMBPBData noch nicht fertig??
+   bzw. mbpbser.c:MBPBSerNotifyRx schreibt ggf. in per Samaphore gelockten Buffer??
+
+   (1, ok)
+   Diesen Code:
+   // Mark buffer as free
+   pSMBPBPara->SBufferRW[MBPB_BUFFER_COOKED].usCnt= 0;
+   pSMBPBPara->SBufferRW[MBPB_BUFFER_COOKED].usPos= 0;
+   
+   // Unlock the cooked buffer (locked by Cook function)
+   SSEM_UNLOCK(SSemLock, pSMBPBPara->SBufferRW[MBPB_BUFFER_COOKED]);
+   
+   verschieben von TskMBPBData/MBPB_EVT_FRAME_SEND nach TskMBPBData/MBPB_EVT_FRAME_SENT!?
+    
+   (2, ok)
+   wo wird MBPB_STATE_RX_COMPLETE wieder zu MBPB_STATE_RX_IDLE?
+   In MBPBSerNotifyTo (am Ende)
+
+--- 2013-02-07 ---
+
+* [im Rahmen der Bootloader-Erweiterung des Frameworks realisiert]
+SYSTEM WATCHDOG
+um ein "klemmendes" System zu Erkennen und automatisch neu zu starten (Mitteilung des Startgrundes (POWER_ON, SYSWDT, ...) über RSTC)
+
+--- 2013-01-30 --- 
+
+2012-12-12  [freigegeben 2013-01-22 FM explizit und via "wichtige Bug-Fixes"]
+   [2013-01-23 OK] RttMsg auf "Multi-Message-Bit" erweitern (wie z.B. UsartMsg) - Dokumentation beschreibt das Feature bereits!
+   [2013-01-23 OK] RttSCKGet() umbenennen nach RttSLCKGet (SLCK= SLow cloK)
+
+2012-03-08 [ursprünglich zurückgestellt 2013-01-22 FM]
+   VOR dem Erzeugen der RAW (intern binär) Antwort prüfen, ob diese (1) in den RAW Puffer und (2) in den COOKED Puffer im aktuellem Modus paßt!! Dazu ggf. CMBPBParserSer::Maximum() in das Framework portieren und integrieren!!
+   (in jedem Code=Command Handler: "mbpbholding.c" u.s.w.)
+   mbpbinput.c
+   mbpbholding.c
+   mbpbcoils.c
+   mbpbdisc.c
+   mbpbser.c
+   mbpbdata.h
+   [2013-01-30 OK]
+   
+2012-02-29 [freigegeben 2013-01-22 FM via "wichtige Bug-Fixes"]
+   Folgende Funktionen kommen durch einen Variablenüberlauf zu Endlos-Schleifen (bei Blockgröße > 254 Byte):
+   Folgende Funktionen unterstützen nur einen UCHAR "Count", obwohl sie mit USHORT "Count" versorgt werden:
+   
+   [2013-01-24 OK] void MBPBSerNotifyRx(struct _SMBPBPara *pSMBPBPara, UCHAR ucCount, UCHAR *pucPrevAr, UCHAR *pucPrevIdx)
+   [2013-01-24 OK] void MBPBSerNotifyTo(struct _SMBPBPara *pSMBPBPara, UCHAR ucCount)
+   [2013-01-24 OK] void MBPBSerNotifyTxDone(struct _SMBPBPara *pSMBPBPara, USHORT usCount)
+   [2013-01-23 OK] USHORT MBPBSerDecode(EMBPBMode EMode, CHAR ucCR, UCHAR ucLF, UCHAR *pucCooked, USHORT usCookedCnt, UCHAR *pucRaw, USHORT usRawLen)
+
+   alt:
+      for (ucRepeat= 0; ucRepeat < ucCount; ucRepeat++)
+
+   neu:
+      (Vorschlag, UNgetestet!!, behandelt aber nur 254 von 255 Bytes):
+      for (ucRepeat= ucCount; ucRepeat; ucRepeat--)
+
+   [2013-01-23 OK] neu2:
+      Laufvariablen von UCHAR auf USHORT und von USHORT auf ULONG (MBPBSerDecode) umstellen
+   [2013-01-24 OK] neu2:
+      Laufvariablen von UCHAR auf USHORT auf ULONG umstellen
+
+--- --- ---
