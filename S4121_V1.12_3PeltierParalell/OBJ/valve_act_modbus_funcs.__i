@@ -1,0 +1,1 @@
+-c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\valve_act_modbus_funcs.o" --omf_browse ".\OBJ\valve_act_modbus_funcs.crf" --depend ".\OBJ\valve_act_modbus_funcs.d" "src\S6510\valve_act_modbus_funcs.c"

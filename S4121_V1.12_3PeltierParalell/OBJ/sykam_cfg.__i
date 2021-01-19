@@ -1,0 +1,1 @@
+-c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\sykam_cfg.o" --omf_browse ".\OBJ\sykam_cfg.crf" --depend ".\OBJ\sykam_cfg.d" "CFG\sykam_cfg.c"

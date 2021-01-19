@@ -1,0 +1,1 @@
+-c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\column_oven_cmds_owner.o" --omf_browse ".\OBJ\column_oven_cmds_owner.crf" --depend ".\OBJ\column_oven_cmds_owner.d" "SRC\column_oven_cmds_owner.c"

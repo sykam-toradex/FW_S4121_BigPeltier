@@ -1,0 +1,1 @@
+-c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\rtt.o" --omf_browse ".\OBJ\rtt.crf" --depend ".\OBJ\rtt.d" "..\..\CPU\AT91\RTT\rtt.c"

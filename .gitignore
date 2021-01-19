@@ -45,6 +45,20 @@
 # Kernel Module Compile Results
 *.mod*
 *.cmd
+
+# other files
+*.bak
+*.htm
+*.lnp
+*.plg
+*.sct
+*.tra
+*.iex
+*.lst
+*.__i
+*.crf
+
+
 .tmp_versions/
 modules.order
 Module.symvers

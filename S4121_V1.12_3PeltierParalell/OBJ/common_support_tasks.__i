@@ -1,0 +1,1 @@
+-c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\common_support_tasks.o" --omf_browse ".\OBJ\common_support_tasks.crf" --depend ".\OBJ\common_support_tasks.d" "..\SHARED\SRC\common_support_tasks.c"

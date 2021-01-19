@@ -1,0 +1,1 @@
+-c --cpu ARM7TDMI -D__RTX -g -O0 --apcs=interwork -ICFG\ -I..\SHARED\SRC -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Atmel\SAM7X" -o ".\OBJ\common_registers_funcs.o" --omf_browse ".\OBJ\common_registers_funcs.crf" --depend ".\OBJ\common_registers_funcs.d" "..\SHARED\SRC\common_registers_funcs.c"

@@ -1,0 +1,19 @@
+V1.12
+corrected: negative offset can not be saved on FRAM
+
+	in ColumnOvenCmdsOwner_DeviceParamsLoad function add this: 
+		if(!(u16_TemperatureOffset & 0x8000))
+	      {
+	         if (u16_TemperatureOffset > (ushort)AT91SAM7X__MAX_TEMPERATURE_OFFSET_MUL_TEN)
+	            u16_TemperatureOffset = (ushort)AT91SAM7X__DEFAULT_TEMPERATURE_OFFSET_MUL_TEN;
+	      }
+	      else
+	         if((u16_TemperatureOffset - 0x8000) > (ushort)AT91SAM7X__MAX_TEMPERATURE_OFFSET_MUL_TEN)
+	            u16_TemperatureOffset = (ushort)AT91SAM7X__DEFAULT_TEMPERATURE_OFFSET_MUL_TEN;
+
+
+	instead of just this:
+		if (u16_TemperatureOffset > (ushort)AT91SAM7X__MAX_TEMPERATURE_OFFSET_MUL_TEN)
+	            u16_TemperatureOffset = (ushort)AT91SAM7X__DEFAULT_TEMPERATURE_OFFSET_MUL_TEN;
+
+corrected: Negative current temperature could not be shown on display
