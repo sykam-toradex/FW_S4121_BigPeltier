@@ -43,8 +43,8 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\OBJ\</OutputDirectory>
-          <OutputName>\Flash\S4121_V112_3Peltier_SpecialCase</OutputName>
+          <OutputDirectory>.\OBJ\FLASH\</OutputDirectory>
+          <OutputName>S4121_V112_BigPeltier</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>

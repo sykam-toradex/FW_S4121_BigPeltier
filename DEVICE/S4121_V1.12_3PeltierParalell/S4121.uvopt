@@ -411,10 +411,10 @@
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>70</ColumnNumber>
+      <ColumnNumber>71</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>155</TopLine>
-      <CurrentLine>169</CurrentLine>
+      <CurrentLine>170</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\CFG\AT91SAM7X.h</PathWithFileName>
       <FilenameWithoutPath>AT91SAM7X.h</FilenameWithoutPath>
@@ -1027,10 +1027,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>22</ColumnNumber>
+      <ColumnNumber>29</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>411</TopLine>
-      <CurrentLine>421</CurrentLine>
+      <TopLine>442</TopLine>
+      <CurrentLine>462</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SRC\column_oven_support_funcs.c</PathWithFileName>
       <FilenameWithoutPath>column_oven_support_funcs.c</FilenameWithoutPath>
@@ -2876,8 +2876,14 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>4</ActiveTab>
+      <ActiveTab>5</ActiveTab>
       <Documents>
+        <Doc>
+          <Name>.\CFG\AT91SAM7X.h</Name>
+          <ColumnNumber>71</ColumnNumber>
+          <TopLine>155</TopLine>
+          <CurrentLine>170</CurrentLine>
+        </Doc>
         <Doc>
           <Name>.\CFG\AT91SAM7X.c</Name>
           <ColumnNumber>0</ColumnNumber>
@@ -2904,27 +2910,9 @@
         </Doc>
         <Doc>
           <Name>.\SRC\column_oven_support_funcs.c</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>411</TopLine>
-          <CurrentLine>421</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\SRC\column_oven_signal_processing_tasks.c</Name>
-          <ColumnNumber>42</ColumnNumber>
-          <TopLine>611</TopLine>
-          <CurrentLine>632</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\SRC\column_oven_signal_processing_funcs.c</Name>
-          <ColumnNumber>32</ColumnNumber>
-          <TopLine>368</TopLine>
-          <CurrentLine>386</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\CFG\AT91SAM7X.h</Name>
-          <ColumnNumber>70</ColumnNumber>
-          <TopLine>155</TopLine>
-          <CurrentLine>169</CurrentLine>
+          <ColumnNumber>29</ColumnNumber>
+          <TopLine>442</TopLine>
+          <CurrentLine>462</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

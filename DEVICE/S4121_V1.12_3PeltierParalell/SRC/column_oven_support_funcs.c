@@ -415,41 +415,57 @@ ulong ColumnOvenSupportFuncs_SetDacOutput (float f_DacDesiredOutput)
       {
          u32_ColumnOvenTemperature = 200000;                // set temperature to 20°C when error reading actual temperature
       }
-      if (u32_ColumnOvenTemperature <  50000)                                                // temperature <5°C
+//      if (u32_ColumnOvenTemperature <  50000)                                                // temperature <5°C
+//      {
+//         f_DacMax =   10.0;                                                                  // max. DAC value heat =  10
+//         f_DacMin = -750.0 * (float)u8_TimeCoef / 100.0;                                                                  // max. DAC value cool = 520
+//      }
+//      if ((u32_ColumnOvenTemperature >=  50000) && (u32_ColumnOvenTemperature < 150000))     // temperature 5°C ... 15°C
+//      {
+//         // linear interpolation max. Dac value 520 to 500
+//         f_DacMax =  400.0;
+//         f_DacMin = -650.0 * (float)u8_TimeCoef / 100.0;
+//      }
+//      if ((u32_ColumnOvenTemperature >= 150000) && (u32_ColumnOvenTemperature < 400000))     // temperature 15°C ... 40°C
+//      {
+//         f_DacMax =  500.0 * (float)u8_TimeCoef / 100.0;
+//         f_DacMin = -650.0 * (float)u8_TimeCoef / 100.0;
+//      }
+//      if ((u32_ColumnOvenTemperature >= 400000) && (u32_ColumnOvenTemperature < 600000))     // temperature 40°C ... 60°C
+//      {
+//         f_DacMax =  (500.0 + (100.0 * ((float)u32_ColumnOvenTemperature - 400000.0)) / (600000.0 - 400000.0))* (float)u8_TimeCoef / 100.0;
+//         f_DacMin = - 650.0 * (float)u8_TimeCoef / 100.0;
+//      }
+//      if ((u32_ColumnOvenTemperature >= 600000) && (u32_ColumnOvenTemperature < 800000))    // temperature 60°C ... 80°C
+//      {
+//         f_DacMax =  (600.0 + (100.0 * ((float)u32_ColumnOvenTemperature - 600000.0)) / (800000.0 - 600000.0)) * (float)u8_TimeCoef / 100.0;
+//         f_DacMin = - 650.0 * (float)u8_TimeCoef / 100.0;
+//      }
+//      if ((u32_ColumnOvenTemperature >= 800000) && (u32_ColumnOvenTemperature < 1000000))    // temperature 80°C ... 100°C
+//      {
+//         f_DacMax = (700.0 + (50.0 * ((float)u32_ColumnOvenTemperature - 800000.0)) / (1000000.0 - 800000.0)) * (float)u8_TimeCoef / 100.0;
+//         f_DacMin = - 650.0 * (float)u8_TimeCoef / 100.0;
+//      }
+//      if (u32_ColumnOvenTemperature >= 1000000)                                              // temperature >100°C
+//      {
+//         f_DacMax = 750.0 * (float)u8_TimeCoef / 100.0;                                                                   // max. DAC value heat = 750
+//         f_DacMin = -10.0;                                                                   // max. DAC value cool = 10
+//      }
+
+      if(u32_ColumnOvenTemperature < 100000)
       {
-         f_DacMax =   10.0;                                                                  // max. DAC value heat =  10
-         f_DacMin = -750.0 * (float)u8_TimeCoef / 100.0;                                                                  // max. DAC value cool = 520
+         f_DacMax = 650.0 * (float)u8_TimeCoef / 100.0;            
+         f_DacMin = 750.0 * (float)u8_TimeCoef / 100.0;
       }
-      if ((u32_ColumnOvenTemperature >=  50000) && (u32_ColumnOvenTemperature < 150000))     // temperature 5°C ... 15°C
+      if((u32_ColumnOvenTemperature >= 100000) && (u32_ColumnOvenTemperature < 900000))    // temperature 10°C ... 90°C
       {
-         // linear interpolation max. Dac value 520 to 500
-         f_DacMax =  400.0;
-         f_DacMin = -650.0 * (float)u8_TimeCoef / 100.0;
+         f_DacMax = (650.0 + ((float)u32_ColumnOvenTemperature - 100000.0) * ((1023.0 - 650.0) / (900000.0 - 100000.0))) * (float)u8_TimeCoef / 100.0;            
+         f_DacMin = 750.0 * (float)u8_TimeCoef / 100.0;
       }
-      if ((u32_ColumnOvenTemperature >= 150000) && (u32_ColumnOvenTemperature < 400000))     // temperature 15°C ... 40°C
+      if(u32_ColumnOvenTemperature >= 900000)
       {
-         f_DacMax =  500.0 * (float)u8_TimeCoef / 100.0;
-         f_DacMin = -650.0 * (float)u8_TimeCoef / 100.0;
-      }
-      if ((u32_ColumnOvenTemperature >= 400000) && (u32_ColumnOvenTemperature < 600000))     // temperature 40°C ... 60°C
-      {
-         f_DacMax =  (500.0 + (100.0 * ((float)u32_ColumnOvenTemperature - 400000.0)) / (600000.0 - 400000.0))* (float)u8_TimeCoef / 100.0;
-         f_DacMin = - 650.0 * (float)u8_TimeCoef / 100.0;
-      }
-      if ((u32_ColumnOvenTemperature >= 600000) && (u32_ColumnOvenTemperature < 800000))    // temperature 60°C ... 80°C
-      {
-         f_DacMax =  (600.0 + (100.0 * ((float)u32_ColumnOvenTemperature - 600000.0)) / (800000.0 - 600000.0)) * (float)u8_TimeCoef / 100.0;
-         f_DacMin = - 650.0 * (float)u8_TimeCoef / 100.0;
-      }
-      if ((u32_ColumnOvenTemperature >= 800000) && (u32_ColumnOvenTemperature < 1000000))    // temperature 80°C ... 100°C
-      {
-         f_DacMax = (700.0 + (50.0 * ((float)u32_ColumnOvenTemperature - 800000.0)) / (1000000.0 - 800000.0)) * (float)u8_TimeCoef / 100.0;
-         f_DacMin = - 650.0 * (float)u8_TimeCoef / 100.0;
-      }
-      if (u32_ColumnOvenTemperature >= 1000000)                                              // temperature >100°C
-      {
-         f_DacMax = 750.0 * (float)u8_TimeCoef / 100.0;                                                                   // max. DAC value heat = 750
-         f_DacMin = -10.0;                                                                   // max. DAC value cool = 10
+         f_DacMax = 1023.0 * (float)u8_TimeCoef / 100.0;
+         f_DacMin = 650.0 * (float)u8_TimeCoef / 100.0;
       }
    }
    if (f_DacDesiredOutput > f_DacMax)
